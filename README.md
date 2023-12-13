@@ -6,11 +6,11 @@
 ### Godot v4.1.2
 https://godotengine.org/download/archive/
 # Windows |
-### Minimum
+### Minimum |
 OS | Windows 7
 Processor | Support for OpenGL 2.1
 Memory | 2 GB
-### Recommended
+### Recommended |
 OS | Windows 10 (or newer)
 Processor | Support for OpenGL 3.3
 Memory | 4 GB
