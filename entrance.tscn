@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmxcekru0amuw"]
+
+[ext_resource type="Script" path="res://entrance.gd" id="1_2jhyw"]
+[ext_resource type="Texture2D" uid="uid://bbrsm7r5cfppl" path="res://art/map/spritesheets/City Tileset.png" id="1_mywe3"]
+[ext_resource type="FontFile" uid="uid://noffbo3ekhu0" path="res://art/font/Pixelary.otf" id="2_5aq24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ca1m"]
+atlas = ExtResource("1_mywe3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rm14v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ca1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvb43"]
+size = Vector2(24, 27.5)
+
+[sub_resource type="Gradient" id="Gradient_p1jmt"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f1wyf"]
+gradient = SubResource("Gradient_p1jmt")
+
+[sub_resource type="Animation" id="Animation_ci1wb"]
+resource_name = "fade_in2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lq7je"]
+resource_name = "fade_out2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5omy"]
+_data = {
+"fade_in2": SubResource("Animation_ci1wb"),
+"fade_out2": SubResource("Animation_lq7je")
+}
+
+[node name="Entrance" type="Area2D"]
+script = ExtResource("1_2jhyw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rm14v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_fvb43")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1299.0
+offset_bottom = 784.0
+texture = SubResource("GradientTexture2D_f1wyf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_g5omy")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -32.0
+offset_top = 23.0
+offset_right = 33.0
+offset_bottom = 47.0
+theme_override_fonts/normal_font = ExtResource("2_5aq24")
+theme_override_font_sizes/normal_font_size = 29
+scroll_active = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cap2rx3cfa78j"]
+
+[ext_resource type="Texture2D" uid="uid://drn0ddtfiydn4" path="res://art/objects/Blood Tree 2 Sprite Sheet 128x96.png" id="1_v3xfk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdkar"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ive7x"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(128, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0etj"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(256, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho6c8"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(384, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpltl"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(512, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_couoy"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(640, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrgcp"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(768, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agmng"]
+atlas = ExtResource("1_v3xfk")
+region = Rect2(896, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4k4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdkar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ive7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0etj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho6c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpltl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_couoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrgcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agmng")
+}],
+"loop": true,
+"name": &"Wind",
+"speed": 12.0
+}]
+
+[node name="Tree2" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q4k4p")
+animation = &"Wind"
+autoplay = "Wind"
+frame_progress = 0.387039

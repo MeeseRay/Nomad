@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvy5afmi0e8kk"]
+
+[ext_resource type="Script" path="res://BackToMainMenu.gd" id="1_aax0p"]
+
+[node name="YOUWIN" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 12.0
+offset_right = 200.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -23.0
+offset_right = 440.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 23.3333
+offset_top = 296.667
+offset_right = 23.3334
+offset_bottom = 524.667
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.3333
+offset_top = -118.0
+offset_right = 18.3334
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+script = ExtResource("1_aax0p")
+
+[connection signal="pressed" from="BackToMainMenu" to="BackToMainMenu" method="_on_pressed"]

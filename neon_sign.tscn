@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn0bonuq68bfw"]
+
+[ext_resource type="Texture2D" uid="uid://bbrsm7r5cfppl" path="res://art/map/spritesheets/City Tileset.png" id="1_rxc17"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_380kk"]
+atlas = ExtResource("1_rxc17")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krb82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_380kk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_0pavy"]
+offsets = PackedFloat32Array(0.0322581, 0.258065, 0.683871, 1)
+colors = PackedColorArray(0, 0.865671, 0.866324, 1, 0, 0.519403, 0.519794, 1, 0, 0.244776, 0.24496, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iaypx"]
+gradient = SubResource("Gradient_0pavy")
+height = 90
+fill = 1
+fill_from = Vector2(0.5, 0.518349)
+fill_to = Vector2(0.895433, 0.333333)
+
+[node name="NeonSign" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_krb82")
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(1, -1)
+scale = Vector2(1.10938, 0.265625)
+color = Color(0, 0.811765, 0.811765, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_iaypx")

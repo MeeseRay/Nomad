@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdankbuafyqir"]
+
+[ext_resource type="Script" path="res://lever.gd" id="1_lm7un"]
+[ext_resource type="Texture2D" uid="uid://djb75ktpk3j8n" path="res://art/objects/down 16x19.png" id="2_mtb2p"]
+[ext_resource type="FontFile" uid="uid://noffbo3ekhu0" path="res://art/font/Pixelary.otf" id="3_bcsnc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27hwv"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(48, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q14rf"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(32, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykrfv"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(16, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhcni"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(0, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_883wk"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(0, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boimb"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(16, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rcnx"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(32, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vng0q"]
+atlas = ExtResource("2_mtb2p")
+region = Rect2(48, 0, 16, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xmw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27hwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q14rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykrfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhcni")
+}],
+"loop": false,
+"name": &"Activate",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_883wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boimb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rcnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vng0q")
+}],
+"loop": false,
+"name": &"Deactivate",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d0xr"]
+
+[node name="Lever" type="Area2D"]
+script = ExtResource("1_lm7un")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3xmw3")
+animation = &"Deactivate"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0d0xr")
+
+[node name="SoundOne" type="AudioStreamPlayer2D" parent="."]
+pitch_scale = 2.01
+
+[node name="SoundTwo" type="AudioStreamPlayer2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -32.0
+offset_top = 13.0
+offset_right = 47.0
+offset_bottom = 35.0
+theme_override_fonts/normal_font = ExtResource("3_bcsnc")
+theme_override_font_sizes/normal_font_size = 29
+scroll_active = false
+
+[connection signal="body_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_exited" from="." to="." method="_on_area_exited"]

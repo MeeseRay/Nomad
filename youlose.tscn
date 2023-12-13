@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://vaju22wmi8qo"]
+
+[ext_resource type="Script" path="res://BackToMainMenu.gd" id="1_lu4fh"]
+
+[node name="YOUWIN" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 12.0
+offset_right = 200.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -17.0
+offset_right = 425.0
+offset_bottom = 415.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 41.6667
+offset_top = 340.0
+offset_right = 41.6667
+offset_bottom = 568.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "YOU LOSE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.6667
+offset_top = -74.6667
+offset_right = 41.6667
+offset_bottom = 53.3333
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+script = ExtResource("1_lu4fh")
+
+[connection signal="pressed" from="BackToMainMenu" to="BackToMainMenu" method="_on_pressed"]
