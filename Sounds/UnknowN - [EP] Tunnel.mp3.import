@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpjkjybw3l0um"
+path="res://.godot/imported/UnknowN - [EP] Tunnel.mp3-72af4035c874c398b94664e09d9dfb18.mp3str"
+
+[deps]
+
+source_file="res://sound/UnknowN - [EP] Tunnel.mp3"
+dest_files=["res://.godot/imported/UnknowN - [EP] Tunnel.mp3-72af4035c874c398b94664e09d9dfb18.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
